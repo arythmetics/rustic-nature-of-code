@@ -24,21 +24,21 @@ fn model(app: &App) -> Model {
 
 fn update(_app: &App, model: &mut Model, _update: Update) 
 {
-    let choice = random_range(1,7);
+    let choice = random_range(0.0,1.0);
 
-    if choice == 1 || choice == 6
+    if choice < 0.30
     {
         model.x = model.x + 1.0;
     }
-    else if choice == 2
+    else if choice < 0.50
     {
         model.x = model.x - 1.0;
     }
-    else if choice == 3
+    else if choice < 0.70
     {
         model.y = model.y + 1.0
     }
-    else if choice == 4 || choice == 5
+    else if choice < 1.0
     {
         model.y = model.y - 1.0
     };
@@ -46,11 +46,15 @@ fn update(_app: &App, model: &mut Model, _update: Update)
 
 fn view(app: &App, model: &Model, frame: Frame) {
     let draw = app.draw();
-    draw.background().color(PLUM);
-
+    
+    if app.elapsed_frames()==1
+    {
+        draw.background().color(PLUM);
+    }
+    
     draw.ellipse()
         .x_y(model.x, model.y)
-        .w_h(20.0, 20.0)
+        .w_h(5.0, 5.0)
         .color(STEELBLUE)
         .stroke(BLACK);
     
