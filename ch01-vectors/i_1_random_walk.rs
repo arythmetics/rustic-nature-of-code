@@ -24,9 +24,9 @@ fn model(app: &App) -> Model {
 
 fn update(_app: &App, model: &mut Model, _update: Update) 
 {
-    let choice = random_range(1,5);
+    let choice = random_range(1,7);
 
-    if choice == 1
+    if choice == 1 || choice == 6
     {
         model.x = model.x + 1.0;
     }
@@ -38,7 +38,7 @@ fn update(_app: &App, model: &mut Model, _update: Update)
     {
         model.y = model.y + 1.0
     }
-    else if choice == 4
+    else if choice == 4 || choice == 5
     {
         model.y = model.y - 1.0
     };
@@ -50,7 +50,7 @@ fn view(app: &App, model: &Model, frame: Frame) {
 
     draw.ellipse()
         .x_y(model.x, model.y)
-        .w_h(5.0, 5.0)
+        .w_h(20.0, 20.0)
         .color(STEELBLUE)
         .stroke(BLACK);
     
