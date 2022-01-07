@@ -27,7 +27,18 @@ fn model(app: &App) -> Model {
 fn update(_app: &App, model: &mut Model, _update: Update) 
 {
     let choice = random_range(0.0,1.0);
-    let step: f32 = thread_rng().sample(StandardNormal);
+    let mut step: f32 = 0.0;
+
+    while step == 0.0
+    {
+        let num = random_range(0,11);
+        let p_num = u32::pow(num, 2);
+
+        if p_num > random_range(0,11)
+        {
+            step = num as f32;
+        }
+    }
 
     if choice < 0.25
     {
