@@ -7,7 +7,12 @@ edition = "2021"
 
 [dependencies]
 nannou = "0.18.1"
+rand_distr = "0.4.2"
 
 [[example]]
 name = "i_1_random_walk"
 path = "ch01-vectors/i_1_random_walk.rs"
+
+[[example]]
+name = "i_5_gaussian_random_walk"
+path = "ch01-vectors/i_5_gaussian_random_walk copy.rs"
